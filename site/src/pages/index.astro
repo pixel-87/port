@@ -1,0 +1,196 @@
+---
+import PortfolioCard from '../components/PortfolioCard.astro';
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="A portfolio showcasing communication studies projects exploring media, culture, and social impact." />
+    
+    <!-- SEO -->
+    <title>Communication Studies Portfolio</title>
+    <meta property="og:title" content="Communication Studies Portfolio" />
+    <meta property="og:description" content="A portfolio showcasing communication studies projects exploring media, culture, and social impact." />
+    <meta property="og:type" content="website" />
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <main class="main-container">
+      <header class="hero">
+        <div class="container">
+          <h1 class="hero-title">Communication Studies Portfolio</h1>
+          <p class="hero-description">
+            Exploring the intersection of media, culture, and society through research and creative projects.
+          </p>
+        </div>
+      </header>
+
+      <section class="portfolio-section">
+        <div class="container">
+          <div class="portfolio-grid">
+            <PortfolioCard
+              title="Media Analysis Project"
+              description="A critical examination of digital media platforms and their influence on public discourse, exploring how social media shapes contemporary communication."
+              href="/content/media-analysis"
+            />
+            
+            <PortfolioCard
+              title="Campaign Strategy"
+              description="Development and analysis of an integrated communication campaign, demonstrating strategic planning and audience engagement across multiple channels."
+              href="/content/campaign-strategy"
+            />
+            
+            <PortfolioCard
+              title="Cultural Studies Research"
+              description="An investigation into representation and identity in contemporary media, examining how cultural narratives are constructed and disseminated."
+              href="/content/cultural-research"
+            />
+            
+            <PortfolioCard
+              title="Visual Communication"
+              description="A portfolio of visual storytelling projects exploring the power of imagery and design in conveying complex messages and ideas."
+              href="/content/visual-communication"
+            />
+            
+            <PortfolioCard
+              title="Rhetorical Analysis"
+              description="A comprehensive study of persuasive communication strategies in political and social movements, analyzing language, framing, and audience impact."
+              href="/content/rhetorical-analysis"
+            />
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-divider"></div>
+          <p class="footer-text">
+            © 2026
+          </p>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  .main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero {
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: -0.01em;
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .hero-description {
+    font-size: 0.9375rem;
+    color: var(--color-text-tertiary);
+    line-height: 1.6;
+    max-width: 600px;
+    animation: fadeIn 0.6s ease-out 0.1s backwards;
+  }
+
+  .portfolio-section {
+    flex: 1;
+    padding: var(--spacing-2xl) 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-lg);
+    width: 100%;
+  }
+
+  .footer {
+    padding: var(--spacing-lg) 0;
+    margin-top: var(--spacing-xl);
+  }
+
+  .footer-divider {
+    height: 1px;
+    background: var(--color-border);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .footer-text {
+    text-align: center;
+    color: var(--color-text-tertiary);
+    font-size: 0.9375rem;
+    font-family: var(--font-sans);
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1400px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-sm);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--spacing-lg) 0 var(--spacing-sm);
+    }
+
+    .hero-title {
+      font-size: 1.25rem;
+    }
+
+    .hero-description {
+      font-size: 0.875rem;
+    }
+
+    .portfolio-section {
+      padding: var(--spacing-xl) 0;
+    }
+
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .footer {
+      margin-top: var(--spacing-xl);
+    }
+  }
+</style>
